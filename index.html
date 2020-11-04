@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<script>
+if (navigator.onLine == false) {
+	$("#offline").show();
+} else {
+	$("#offline").hide();
+}
+</script>
+<script>
+$("#offline").click(function(){
+  $("#offline").hide();
+});	
+	
+</script>
+<style>
+body {margin:0;}
+
+.icon-bar {
+  width: 90px;
+  background-color: #333;
+  position: fixed;
+  right: 0;
+  height: 1010px;
+}
+
+.icon-bar a {
+  display: block;
+  text-align: center;
+  padding: 16px;
+  transition: all 0.3s ease;
+  color: white;
+  font-size: 36px;
+}
+
+.icon-bar a:hover {
+  background-color: #000;
+}
+
+#active {
+  background-color: #4CAF50;
+}
+* {box-sizing: border-box}
+
+/* Set height of body and the document to 100% */
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial;
+}
+
+
+.tablink:hover {
+  background-color: #777;
+}
+
+/* Style the tab content (and add height:100% for full page content) */
+.tabcontent {
+  color: white;
+  display: none;
+  padding: 100px 20px;
+  height: 100%;
+}
+
+#Home {background-color: black}
+#Search {background-color: black;}
+#Account {background-color: #0066ff;}
+#Mail {background-color: #0066ff;}
+#App {background-color: orange;}
+#Menu {background-color: black;}
+#Timer {background-color: black;}
+</style>
+<style>
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+	overflow: hidden;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.topnav a.active2 {
+  background-color: #333;
+  color: white;
+}
+
+.topnav a.active2:hover {
+  background-color: #ddd;
+  color: white;
+}
+
+.topnav .icon {
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  .topnav a:not(:first-child) {display: none;}
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .topnav.responsive {position: relative;}
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}
+	
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown a:hover {background-color: #ddd;}
+
+.show {display: block;}
+	
+.menuapp {
+  background-color: #3F3B3B;
+  color: white;
+  text-align: center;
+  font-size: 16px;
+  opacity: 0.6;
+  transition: 0.3s;
+}
+
+.menuapp:hover {opacity: 1}
+	
+	#offline {
+		position: fixed;
+		bottom: 0px;
+		right: 100px;
+	}
+</style>
+<body>
+	
+<noscript><h1>bombicken doesn't work properly without javascript enabled. DID YOU TRY LOGGING IN WITHOUT PASSWORD? not today</h1></noscript>
+	
+	<i class="material-icons" id="offline" style="font-size:100px;color:red" title="Your connection is bad.">warning</i>
+
+<div class="topnav" id="myTopnav">
+  <a onclick="openPage('Menu', this, 'black')" class="active">
+  <i class="material-icons" style="font-size:36px; cursor:pointer;">menu</i></a>
+
+	
+	<a class="tablink" onClick="openPage('Apllications', this, 'black')">
+	<i class="material-icons" style="font-size:36px; cursor:pointer;">apps</i>
+	</a>
+   <a onclick="openPage('Files', this, '#333')">
+	<i class="material-icons" style="font-size:36px;">insert_drive_file</i>
+	</a>
+	   <a onclick="openPage('Timer', this, '#333')">
+	<i class="material-icons" style="font-size:36px; cursor:pointer;">timer</i>
+	</a>
+</div>
+<div class="icon-bar">
+  <a class="tablink" onclick="openPage('Home', this, 'black')" id="defaultOpen"><i class="fa fa-home"></i></a>
+  <a href="#" class="tablink" onclick="openPage('Search', this, 'black')"><i class="fa fa-search" title="search for an app, software or the internet"></i></a> 
+  <a href="#"><i class="fa fa-envelope" title="mail" onclick="openPage('Mail', this, 'black')"></i></a> 
+  <a href="#" ><i class="fa fa-globe" title="browse the internet"></i></a>
+  <a href="#" onclick="openPage(Browser', this, 'black')"><i class="fa fa-trash" title="trash can"></i></a>
+</div>
+  
+  <div id="Home" class="tabcontent">
+	<center>
+	<h1>Welcome to the BOMBICKEN!</h1>  
+	  <h3>the OS system that is way better then windows and macOS COMBINED!</h3>
+	  
+	  
+	</center>
+	
+</div>
+<div id="Search" class="tabcontent">
+  <h3>Search the internet, files or apps.</h3>
+	<input type="text" id="mySearch" onkeyup="search()" class="w3-input" placeholder="Search.." title="Type in a category">
+</div>
+
+<div id="Account" class="tabcontent">
+  <h1>Account settings</h1>
+  <p>enter password to unlock
+  </p>
+
+  <input type="password">
+   <button>unlock</button>
+</div>
+
+<div id="Mail" class="tabcontent">
+  <h3>Welcome to chickenmail</h3>
+  <p><a>click to set up your chickenmail! sadly, chickenmail is still under development and not accessible.</a></p>
+</div>
+
+<div id="App" class="tabcontent">
+  <h3>Notes</h3> <button class="menuapp" title="save document" onClick="saveDocument()"><i class="material-icons" style="font-size:48px;">save</i></button>
+  <textarea id="notes" name="Notes!" rows="25" cols="100"></textarea>
+	<p>Load document (indent may not be there)</p>
+	  <select id="notesselect" name="Load slot">
+	<option id="notes1" value="slot1">slot 1</option>
+	<option id="notes2" value="slot2">slot 2</option>
+	<option id="notes3" value="slot3">slot 3</option>
+	</select>
+	<button onClick="LoadDocument()">Load slot</button>
+	<h3>Your current ch1ck3n plan only supports three saving slots.</h3>
+</div>
+
+
+<div id="Menu" class="tabcontent">
+  <h1>Menu apps</h1>
+	<button class="menuapp" title="report a bug" onClick="openPage('Bugs', this, 'black')"><i class="material-icons" style="font-size:48px;">bug_report</i></button>
+	<button class="menuapp" title="settings" onClick="openPage('Settings', this, 'black')"><i class="material-icons" style="font-size:48px;">settings</i></button>
+	<button class="menuapp" title="account settings" onClick="openPage('Account', this, 'black')"><i class="material-icons" style="font-size: 48px;">account_circle</i> </button>
+</div>
+<div id="Timer" class="tabcontent">
+ <center>
+	<h1>Timer</h1>
+	 <h3>enter you time to use the timer on (seconds)</h3>
+	 <input id="timer"> <button class="menuapp"><i class="material-icons">check</i></button>
+	 <h1>8 SECONDS LEFT</h1>
+	
+	</center>
+</div>
+<div id="Browser">
+	<input></input>
+	
+</div>
+<script>
+function openPage(pageName,elmnt,color) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].style.backgroundColor = "";
+  }
+  document.getElementById(pageName).style.display = "block";
+  elmnt.style.backgroundColor = color;
+}
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function dropdownmenu() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+
+function saveDocument() {
+	var text = document.getElementById("notes").value;
+	var name = window.prompt("Please enter your document name.")
+	var slot=window.prompt("What slot do you want to save it in? 1, 2, or 3?")
+	localStorage.setItem(name + "slot", slot)
+	localStorage.setItem(name, text)
+}
+
+
+function search() {
+  var input, filter, ul, li, a, i;
+  input = document.getElementById("mySearch");
+  filter = input.value.toUpperCase();
+  ul = document.getElementById("myMenu");
+  li = ul.getElementsByTagName("li");
+  for (i = 0; i < li.length; i++) {
+    a = li[i].getElementsByTagName("a")[0];
+    if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+      li[i].style.display = "";
+    } else {
+      li[i].style.display = "none";
+    }
+  }
+}
+
+	
+</script>
+<script>
+document.addEventListener('keydown', function(event){
+	if (event.keyCode == "e") {
+		alert("congrats, you found an easter egg")
+	}
+})	
+	
+</script>
+</body>
+</html> 
